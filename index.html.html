@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Flashcards</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 2rem; }
+    .card { background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 1rem; padding: 1.5rem; transition: all 0.3s ease; cursor: pointer; }
+    .card:hover { transform: scale(1.02); }
+    .question { font-weight: bold; color: #333; }
+    .answer { margin-top: 0.5rem; display: none; color: #555; }
+    .show { display: block; }
+  </style>
+</head>
+<body>
+  <h1>AI Free Basic Course – Flashcards</h1>
+  <div id="flashcards"></div>
+
+  <script>
+    const data = [
+      { q: "What is Artificial Intelligence (AI)?", a: "AI is the simulation of human intelligence in machines, enabling them to perform tasks like reasoning, learning, and decision-making." },
+      { q: "What are the three main types of AI?", a: "1. Narrow AI 2. General AI 3. Super AI" },
+      { q: "What is a model in AI?", a: "A model is a trained system that makes predictions or decisions based on input data." },
+      { q: "What is training in machine learning?", a: "It’s the process of teaching a model using labeled data to learn patterns and make predictions." },
+      { q: "What is data in AI?", a: "Data is the input from which AI learns. It can be structured or unstructured, labeled or unlabeled." },
+      { q: "What is an algorithm?", a: "A step-by-step method the computer uses to solve problems." },
+      { q: "What’s the relationship between AI, ML, and DL?", a: "ML is a subset of AI; DL is a subset of ML. AI ⊃ ML ⊃ DL" },
+      { q: "What is Supervised Learning?", a: "Learning from labeled data — the model is trained with known inputs and outputs." },
+      { q: "Two subtypes of Supervised Learning?", a: "Classification (predict categories), Regression (predict values)" },
+      { q: "Example of Classification?", a: "Spam vs Non-Spam email detection" },
+      { q: "Example of Regression?", a: "Predicting house prices or exam scores" },
+      { q: "What is Unsupervised Learning?", a: "Learning without labeled data — the model finds patterns or groups in the input." },
+      { q: "Example of Unsupervised Learning?", a: "Customer segmentation, grouping users by behavior" },
+      { q: "What is Reinforcement Learning?", a: "The model learns by doing — receiving rewards or penalties to optimize its actions." },
+      { q: "Main components of RL?", a: "Agent, Environment, State, Action, Reward" },
+      { q: "What is labeled data?", a: "Data with input and corresponding output, used in supervised learning." },
+      { q: "What is structured data?", a: "Data organized in rows/columns, like in databases or Excel." },
+      { q: "What is unstructured data?", a: "Raw data like images, videos, audio, or text without a fixed format." },
+      { q: "What is Prompt Engineering?", a: "The skill of crafting clear instructions to get useful responses from AI models." },
+      { q: "Why is prompt engineering important?", a: "A well-structured prompt gets better, more accurate results from an AI." },
+      { q: "Supervised Learning applications?", a: "Email filtering, loan approval, handwriting recognition" },
+      { q: "Unsupervised Learning applications?", a: "Product recommendations, fraud detection, clustering" },
+      { q: "Reinforcement Learning applications?", a: "Gaming AI, self-driving cars, robotics, dynamic pricing" },
+      { q: "Predicted value AI will add by 2030?", a: "$13 trillion globally" },
+      { q: "Common myth about GPT-4?", a: "That it’s just a bigger GPT-3 — but GPT-4 also has smarter training and better reasoning." }
+    ];
+
+    const container = document.getElementById('flashcards');
+    data.forEach((item, index) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const q = document.createElement('div');
+      q.className = 'question';
+      q.textContent = `${index + 1}. ${item.q}`;
+
+      const a = document.createElement('div');
+      a.className = 'answer';
+      a.textContent = item.a;
+
+      card.appendChild(q);
+      card.appendChild(a);
+
+      card.addEventListener('click', () => {
+        a.classList.toggle('show');
+      });
+
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
